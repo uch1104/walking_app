@@ -1,5 +1,5 @@
 <template>
-  <v-row justify="center">
+  <v-row justify="center" class="search-btn">
     <v-dialog
       v-model="dialog"
       persistent
@@ -152,3 +152,10 @@ import axios from 'axios'
     }
   }
 </script>
+
+<style scoped>
+.search-btn{
+  margin: 0;
+  padding: 100px;
+}
+</style>

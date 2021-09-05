@@ -1,5 +1,5 @@
 <template>
-  <v-row justify="center">
+  <v-row justify="center" class="register-btn">
     <v-dialog
       v-model="dialog"
       persistent
@@ -167,3 +167,9 @@ import axios from 'axios'
     }
   }
 </script>
+
+<style scoped>
+.register-btn{
+  margin: 0;
+}
+</style>

@@ -2,7 +2,7 @@
   <v-app class="app">
     <Header/>
     <div class="upper">
-      <Search/>
+      <router-view></router-view>
     </div>
     <div class="lower">
       <Registration/>
@@ -12,7 +12,7 @@
 
 <script>
 import 'normalize.css'
-import Search from './components/Search';
+// import Search from './components/Search';
 import Registration from './components/Registration';
 import Header from './components/Header';
 
@@ -21,7 +21,7 @@ export default {
 
   components: {
     Header,
-    Search,
+    // Search,
     Registration,
   },
 
@@ -36,10 +36,10 @@ export default {
 
 
 .upper {
-  margin-top: 10vh;
+  height: 80vh;
 }
 
 .lower {
-  margin-top: 10vh;
+  height: 10vh;
 }
 </style>
