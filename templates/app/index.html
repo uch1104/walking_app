@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+{% for facility in facilities %}
+<div>
+{{ facility.name }}
+{{ facility.address }}
+{{ facility.comment }}
+</div>
+{% endfor %}
+<a href="{% url 'app:manage' %}">投稿</a>
+
+{% endblock %}
