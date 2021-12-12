@@ -118,7 +118,6 @@ import axios from 'axios'
       nursingRoom: false,
       diaperStand: false,
       comment: "",
-      facilities: ""
     }),
     methods: {
       searchData() {
@@ -142,11 +141,12 @@ import axios from 'axios'
             )
             .then((response) => {
               console.log(response.data)
-              this.facilities = response.data.items
+              this.$store.commit("updateFacilities", response.data)
+              this.$router.push('facilities')
             })
             .catch((error) => {
             console.log(error);
-            alert("データの追加に失敗しました");
+            alert("検索に失敗しました");
             })
         },
     }

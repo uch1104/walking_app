@@ -101,4 +101,6 @@ def search_facility(request):
         'total': len(facilities)
     }
 
+    print(response)
+
     return JsonResponse(response)

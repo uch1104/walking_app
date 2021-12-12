@@ -4,7 +4,7 @@
     <div class="upper">
       <router-view></router-view>
     </div>
-    <div class="lower">
+    <div class="lower" v-if="is_searched">
       <Registration/>
     </div>
   </v-app>
@@ -24,6 +24,11 @@ export default {
     // Search,
     Registration,
   },
+  computed: {
+    is_searched() {
+      return this.$store.getters.facility == null;
+    }
+  },
 
   data: () => ({
     //
@@ -36,7 +41,7 @@ export default {
 
 
 .upper {
-  height: 80vh;
+  height: 90%;
 }
 
 .lower {

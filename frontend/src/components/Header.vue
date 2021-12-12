@@ -1,6 +1,16 @@
 <template>
-    <header><router-link to='/' class="link">Baby's Day Out</router-link></header>
+    <header @click="nullFacility"><router-link to='/' class="link">Baby's Day Out</router-link></header>
 </template>
+
+<script>
+export default {
+    methods: {
+      nullFacility() {
+          this.$store.state.facilities = null
+      }
+    }
+}
+</script>
 
 <style scoped>
 header {
