@@ -1,13 +1,39 @@
 <template>
-  <v-app class="app">
+  <!-- <v-app class="app">
     <Header/>
-    <!-- <div class="upper">
-      <router-view></router-view>
-    </div> -->
-    <!-- <div class="lower" v-if="is_searched">
-      <Registration/>
-    </div> -->
     <GoogleMap/>
+  </v-app> -->
+  <v-app id="inspire">
+    <v-navigation-drawer
+      v-model="drawer"
+      app
+      clipped
+    >
+      <!--  -->
+    </v-navigation-drawer>
+
+    <v-app-bar app>
+      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+
+      <v-toolbar-title>Baby's Day Out</v-toolbar-title>
+      <v-spacer></v-spacer>
+      <v-btn
+        class="mx-2"
+        fab
+        dark
+        small
+
+        color="blue-grey"
+      >
+        <v-icon dark>
+          mdi-plus
+        </v-icon>
+      </v-btn>
+    </v-app-bar>
+
+    <v-main>
+      <GoogleMap/>
+    </v-main>
   </v-app>
 </template>
 
@@ -15,14 +41,14 @@
 import 'normalize.css'
 // import Search from './components/Search';
 // import Registration from './components/Registration';
-import Header from './components/Header';
+// import Header from './components/Header';
 import GoogleMap from './components/GoogleMap'
 
 export default {
   name: 'App',
 
   components: {
-    Header,
+    // Header,
     GoogleMap
     // Search,
     // Registration,
@@ -34,7 +60,7 @@ export default {
   },
 
   data: () => ({
-    //
+    drawer: null
   }),
 };
 </script>
