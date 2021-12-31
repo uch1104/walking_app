@@ -5,7 +5,7 @@
       persistent
       max-width="600px"
     >
-      <template v-slot:activator="{ on, attrs }">
+      <!-- <template v-slot:activator="{ on, attrs }">
         <v-btn
           color="primary"
           dark
@@ -14,7 +14,7 @@
         >
           Register
         </v-btn>
-      </template>
+      </template> -->
       <v-card>
         <v-card-title>
           <span class="text-h5">Register the facility</span>
@@ -114,8 +114,8 @@
 import axios from 'axios'
 
   export default {
+    props: ['dialog'],
     data: () => ({
-      dialog: false,
       facilityName: "",
       type: "",
       badWeather: false,

@@ -22,7 +22,7 @@
         fab
         dark
         small
-
+        @click.stop="dialog = true"
         color="blue-grey"
       >
         <v-icon dark>
@@ -32,7 +32,8 @@
     </v-app-bar>
 
     <v-main>
-      <GoogleMap/>
+      <Registration :dialog="dialog"></Registration>
+      <GoogleMap></GoogleMap>
     </v-main>
   </v-app>
 </template>
@@ -40,27 +41,28 @@
 <script>
 import 'normalize.css'
 // import Search from './components/Search';
-// import Registration from './components/Registration';
 // import Header from './components/Header';
-import GoogleMap from './components/GoogleMap'
+import GoogleMap from './components/GoogleMap';
+import Registration from './components/Registration.vue';
+
 
 export default {
   name: 'App',
 
   components: {
     // Header,
-    GoogleMap
+    GoogleMap,
     // Search,
-    // Registration,
+    Registration
   },
   computed: {
     is_searched() {
       return this.$store.getters.facility == null;
     }
   },
-
   data: () => ({
-    drawer: null
+    drawer: null,
+    dialog: false,
   }),
 };
 </script>
