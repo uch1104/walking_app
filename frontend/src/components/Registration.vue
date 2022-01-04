@@ -1,7 +1,7 @@
 <template>
   <v-row justify="center" class="register-btn">
     <v-dialog
-      v-model="dialog"
+      v-model="getDialog"
       persistent
       max-width="600px"
     >
@@ -92,7 +92,7 @@
           <v-btn
             color="blue darken-1"
             text
-            @click="dialog = false"
+            @click="switchDialog"
           >
             Close
           </v-btn>
@@ -114,7 +114,6 @@
 import axios from 'axios'
 
   export default {
-    props: ['dialog'],
     data: () => ({
       facilityName: "",
       type: "",
@@ -126,7 +125,15 @@ import axios from 'axios'
       diaperStand: false,
       comment: "",
     }),
+    computed: {
+      getDialog() {
+        return this.$store.getters.dialog;
+      }
+    },
     methods: {
+      switchDialog() {
+        this.$store.commit('switchDialog')
+      },
       saveData() {
         let params = new FormData()
         params.append('name', this.facilityName)
@@ -152,7 +159,6 @@ import axios from 'axios'
             alert("データの追加に失敗しました");
             })
 
-        this.dialog = false
         this.facilityName = ""
         this.type = ""
         this.address = ""

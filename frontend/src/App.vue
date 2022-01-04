@@ -22,7 +22,7 @@
         fab
         dark
         small
-        @click.stop="dialog = true"
+        @click="switchDialog"
         color="blue-grey"
       >
         <v-icon dark>
@@ -32,7 +32,7 @@
     </v-app-bar>
 
     <v-main>
-      <Registration :dialog="dialog"></Registration>
+      <Registration></Registration>
       <GoogleMap></GoogleMap>
     </v-main>
   </v-app>
@@ -60,9 +60,13 @@ export default {
       return this.$store.getters.facility == null;
     }
   },
+  methods: {
+    switchDialog() {
+      this.$store.commit('switchDialog')
+    }
+  },
   data: () => ({
     drawer: null,
-    dialog: false,
   }),
 };
 </script>
